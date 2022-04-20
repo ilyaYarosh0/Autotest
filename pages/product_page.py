@@ -17,3 +17,11 @@ class ProductPage(BasePage):
             book_name = self.browser.find_element(*BasketLocators.BOOK_NAME).text
             book_basket = self.browser.find_element(*BasketLocators.BOOK_NAME_BASKET).text
             assert book_name == book_basket, "Name is not same"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*BasketLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def is_dissappeared(self):
+        assert self.is_disappeared(*BasketLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"

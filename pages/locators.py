@@ -9,6 +9,7 @@ class LoginPageLocators():
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
 
 class BasketLocators():
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages>div:nth-child(1)")
     ADD_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     BOOK_NAME = (By.CSS_SELECTOR, ".product_main h1")
     BOOK_PRICE = (By.CSS_SELECTOR, ".col-sm-6.product_main .price_color")
