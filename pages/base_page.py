@@ -1,11 +1,11 @@
 from telnetlib import EC
-
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from .locators import BasePageLocators
 import math
-
-from selenium.webdriver.support.wait import WebDriverWait
-
 
 class BasePage():
     def __init__(self, browser, url, timeout=10):
@@ -22,6 +22,11 @@ class BasePage():
         except (NoSuchElementException):
             return False
         return True
+
+    def should_enter_basket(self):
+        basket = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        basket.click()
+        assert "basket" in self.browser.current_url, "Basket unavailable"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert

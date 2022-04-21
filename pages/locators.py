@@ -17,6 +17,11 @@ class BasketLocators():
     BOOK_PRICE_BASKET = (By.CSS_SELECTOR, "#messages>div:nth-child(3) strong")
 
 class BasePageLocators():
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-group .btn.btn-default")
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+class BasketPageLocators():
+    EMPTY_BASKET = (By.CSS_SELECTOR, ".basket-items")
+    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
 
