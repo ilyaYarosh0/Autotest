@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import BasketLocators
+from .locators import BasketLocators, BasePageLocators
 from selenium.webdriver.common.by import By
 
 class ProductPage(BasePage):
@@ -25,3 +25,11 @@ class ProductPage(BasePage):
     def is_dissappeared(self):
         assert self.is_disappeared(*BasketLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
